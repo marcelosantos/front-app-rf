@@ -1,0 +1,63 @@
+<nav class="navbar navbar-default navbar-static-top" style="background-color:#1659bf;"
+    ng-hide="!restrictedPage || !globals.currentUser">
+    <div class="container-fluid"  ng-controller = "DashboardController" >
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle navbar-toggle-sidebar collapsed">
+                <i class="fa fa-bars"></i> &nbsp;Menu
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-left hidden-xs">
+              <button type="button" class="navbar-toggle-sidebar collapsed teste">
+                <i class="fa fa-bars"></i> &nbsp;Menu
+              </button>
+            </ul>
+            <div class="nav navbar-nav navbar-left logo">
+              <img class="img-responsive" src="images/receita-federal-logo.png">
+            </div>
+            <div class="nav navbar-right" style = "color: #fff;font-size:16px;font-weight:500" >
+              <button
+                style = "background-color:#ff4e4e;padding:9px;border:0px"
+                class="btn btn-primary dropdown-toggle" type="button"
+                data-toggle="dropdown"> &nbsp;
+
+                {{globals.currentUser.nome}}
+
+              <span class="caret"></span>
+              <img ng-src = "images/receita-federal-logo.png"
+                   width = "40" height = "40">
+
+            </button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a ng-click = "logout()"><span class="fa fa-sign-out"></span>&nbsp;&nbsp;Sair</a></li>
+              </ul>
+            </div>
+        </div><!-- /.navbar-collapse -->
+
+    </div><!-- /.container-fluid -->
+</nav>
+
+<script>
+    $(document).ready(function () {
+        $(".teste").click(function(){
+            $(".sidebar").toggle(0);
+            $('.content').toggleClass('col-lg-10');
+            $('.content').toggleClass('col-md-9');
+            $('.content').toggleClass('col-md-12');
+            $('.content').toggleClass('col-lg-12');
+        });
+        $('.navbar-toggle-sidebar').click(function () {
+            $('.navbar-nav').toggleClass('slide-in');
+            $('.side-body').toggleClass('body-slide-in');
+            $('#search').removeClass('in').addClass('collapse').slideUp(200);
+        });
+
+        $('#search-trigger').click(function () {
+            $('.navbar-nav').removeClass('slide-in');
+            $('.side-body').removeClass('body-slide-in');
+            $('.search-input').focus();
+        });
+    });
+</script>

@@ -1,0 +1,13 @@
+{
+  "name": "ficon-finacial-money",
+  "description": "Icons pack for financial and money apps",
+  "main": [
+    "flaticon.svg",
+    "flaticon.css",
+    "flaticon.ttf",
+    "flaticon.woff"
+  ],
+  "authors": [
+    "Freepik"
+  ]
+}

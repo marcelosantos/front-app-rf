@@ -1,0 +1,154 @@
+
+    <div class="col-md-9 col-lg-10 content animated fadeIn" >
+
+		<div ng-controller="BensController as bens">
+
+            <div class="row">
+
+                <div class="col-md-12">
+                	<div class="panel panel-default panel-custom">
+                	    <div class="panel-heading truncate">
+                	        <i class="icon-presentation"></i> &nbsp;&nbsp;&nbsp;Registro de Bens
+                	    </div>
+                        <div class="panel-body" style="position: relative">
+
+                            <div class="col-md-5">
+
+                	            <div>
+                                    <h5><strong>Formulário para cadastro de novos bens</strong></h5>
+
+                                    <div class="col-md-12 col-xs-12">
+                        				<p  class = "text-center" ng-show = "!bens.resposta.sucesso"
+                        				ng-bind = "bens.resposta.mensagem"></p>
+                        				<p  class = "box-message" >
+                        					<i class="fa fa-info-circle">&nbsp;</i> Informe os dados abaixo
+                        				</p>
+                                        <form name = "formNovoBem"  >
+                        					<div class="control">
+                        						<input id="nome" type="text" ng-required = "true"  name = "nome"
+                        						ng-model = "bens.bem.nome" placeholder="Nome"
+                        						class="form-control form-control-custom" >
+                        					</div>
+
+                                            <div class="control">
+                        						<select
+                                                    class="form-control form-control-custom"
+                                                    ng-required = "true"
+                                                    name = "tipo"
+                                                    ng-options="bens.id as bens.titulo for bens in bens.opcoesDeBem"
+                        						    ng-model = "bens.bem.tipo"
+                                                    ng-init="bens.id = 0">
+                                                </select>
+                        					</div>
+
+                                            <div class="control">
+                        						<input type="text" ng-required = "true"  name = "valor"
+                        						ng-model = "bens.bem.valor" placeholder="Valor"
+                        						class="form-control form-control-custom" >
+                        					</div>
+
+                        				<div align="center">
+                        					<button
+                                                    ng-if="!bens.dataEditMode"
+                        							ng-click  = "bens.cadastrar(bens.bem)"
+                        							ng-disabled = "formNovoBem.$invalid || bens.dataLoading"
+                        							type = "submit"  class="btn btn-orange">
+                        						<span ng-if = "bens.dataLoading === true" class="fa fa-spinner fa-pulse fa-1x"></span>
+                        						Cadastrar
+                        					</button>
+                                            <button
+                                                    ng-if="bens.dataEditMode"
+                        							ng-click  = "bens.editar(bens.bem)"
+                        							ng-disabled = "formNovoBem.$invalid || bens.dataLoading"
+                        							type = "submit"  class="btn btn-orange">
+                        						<span ng-if = "bens.dataLoading === true" class="fa fa-spinner fa-pulse fa-1x"></span>
+                        						Atualizar
+                        					</button>
+                        				</div>
+                        				<br/>
+                        			</form>
+                        		</div>
+
+                                </div>
+
+                	        </div>
+
+                	        <div class="col-md-7">
+
+                	            <div>
+                                    <h5><strong>Listagem os bens cadastrados</strong></h5>
+                                    <div
+                                        ui-grid="bens.gridListagemDeBens"
+                                        ui-grid-resize-columns
+                                        class="angular-grid"
+                                        style="height: 400px;"></div>
+                                </div>
+
+                	        </div>
+                		</div><!-- fim panel-body -->
+                        <div class="panel-footer">
+                            <fonte titulo="'Receita Federal'"></fonte>
+                            <info titulo="'2017-04-09 02:55:00'"></info>
+                        </div>
+                	</div>
+                </div>
+
+			</div>
+
+            <div class="row">
+
+                <div class="col-md-12">
+                	<div class="panel panel-default panel-custom">
+                	    <div class="panel-heading truncate">
+                	        <i class="icon-presentation"></i> &nbsp;&nbsp;&nbsp;Registro de Bens
+                	    </div>
+                        <div class="panel-body" ng-if="!bens.gridListagemDeBens.data[0].nome">
+                            <center>Carregando...</center>
+                        </div>
+                	    <div class="panel-body" style="position: relative" ng-if="bens.gridListagemDeBens.data[0].nome">
+
+                            <div class="col-md-12">
+
+                	            <div>
+                                    <h5><strong>Listagem dos bens cadastrados</strong></h5>
+
+                                    <table class="table table-striped">
+                                      <thead>
+                                        <tr>
+                                          <th>#</th>
+                                          <th>Nome do Bem</th>
+                                          <th>Tipo do Bem</th>
+                                          <th>Valor do Bem</th>
+                                          <th>Ações</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr ng-repeat="bem in bens.gridListagemDeBens.data">
+                                          <th scope="row">{{ bem.id }}</th>
+                                          <td>{{ bem.nome }}</td>
+                                          <td>{{ bem.tipo | mostraTipo }}</td>
+                                          <td>{{ bem.valor | roundBigCurrency }}</td>
+                                          <td>
+                                              <button ng-click="bens.edicao(bem)" type="button" class="btn btn-warning">edição</button>
+                                              <button ng-click="bens.remover(bem)" type="button" class="btn btn-danger">remover</button>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+
+                                </div>
+
+                	        </div>
+                		</div><!-- fim panel-body -->
+                        <div class="panel-footer">
+                            <fonte titulo="'Receita Federal'"></fonte>
+                            <info titulo="'2017-04-09 02:55:00'"></info>
+                        </div>
+                	</div>
+                </div>
+
+			</div>
+
+		</div>
+
+    </div>

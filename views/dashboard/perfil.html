@@ -1,0 +1,147 @@
+
+    <div class="col-md-9 col-lg-10 content animated fadeIn" >
+
+		<div ng-controller="CidadaosController as cidadaos">
+
+            <div class="row">
+
+                <div class="col-md-12">
+                	<div class="panel panel-default panel-custom">
+                	    <div class="panel-heading truncate">
+                	        <i class="icon-presentation"></i> &nbsp;&nbsp;&nbsp;Meus Dados
+                	    </div>
+                        <div class="panel-body" ng-if="!cidadaos.gridListagemDeCidadaos.data.nome">
+                            <center>Carregando...</center>
+                        </div>
+                	    <div class="panel-body" style="position: relative" ng-if="cidadaos.gridListagemDeCidadaos.data.nome">
+
+                            <div class="col-md-12">
+
+                                <div>
+                                    <h5><strong>Formulário para atualização de cadastro</strong></h5>
+
+                                    <div class="col-md-12 col-xs-12">
+                                        <p  class = "text-center" ng-show = "!cidadaos.resposta.sucesso"
+                                        ng-bind = "cidadaos.resposta.mensagem"></p>
+
+                                        <form name = "formNovoCidadao"  >
+
+                                            <div class="row">
+
+                                                <div class="col-md-6">
+
+                                                    <p  class = "box-message" >
+                                                        <i class="fa fa-info-circle">&nbsp;</i> Informe os dados abaixo
+                                                    </p>
+
+                                                    <div class="control">
+                                                        <input type="text" ng-required = "true"  name = "nome"
+                                                        ng-model = "globals.currentUser.nome" placeholder="Nome"
+                                                        class="form-control form-control-custom" >
+                                                    </div>
+
+                                                    <div class="control">
+                                                        <select
+                                                            class="form-control form-control-custom"
+                                                            ng-required = "true"
+                                                            name = "sexo"
+                                                            ng-options="perfil.id as perfil.titulo for perfil in cidadaos.opcoesDeSexo"
+                                						    ng-model = "globals.currentUser.sexo"
+                                                            ng-init="perfil.id = 0">
+                                                        </select>
+                                					</div>
+
+                                                    <div class="control">
+                                                        <input type="text" ng-required = "true"  name = "endereco"
+                                                        ng-model = "globals.currentUser.endereco" placeholder="Endereço"
+                                                        class="form-control form-control-custom" >
+                                                    </div>
+
+                                                    <div class="control">
+                                                        <input type="text" ng-required = "true"  name = "cidade"
+                                                        ng-model = "globals.currentUser.cidade" placeholder="Cidade"
+                                                        class="form-control form-control-custom" >
+                                                    </div>
+
+                                                    <div class="control">
+                                                        <input type="number" ng-required = "true"  name = "idade"
+                                                        ng-model = "globals.currentUser.idade" placeholder="Idade"
+                                                        class="form-control form-control-custom" >
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-6">
+
+                                                    <p  class = "box-message" >
+                                                        <i class="fa fa-info-circle">&nbsp;</i> Informe os dados de acesso
+                                                    </p>
+
+                                                    <div class="control">
+                                						<select
+                                                            placeholder="Papel"
+                                                            class="form-control form-control-custom"
+                                                            ng-required = "true"
+                                                            name = "papel"
+                                						    ng-model = "globals.currentUser.papel" >
+                                                            <option value="">Papel...</option>
+                                                            <option value="auditor">Auditor</option>
+                                                            <option value="cidadai">Cidadão</option>
+                                                        </select>
+                                					</div>
+
+                                                    <div class="control">
+                                                        <input type="email" ng-required = "true"  name = "email"
+                                                        ng-model = "globals.currentUser.email" placeholder="E-mail"
+                                                        class="form-control form-control-custom" >
+                                                    </div>
+
+                                                    <!--
+                                                    <div class="control">
+                                                        <input type="password" ng-required = "true"  name = "senha"
+                                                        ng-model = "globals.currentUser.senha" placeholder="Senha"
+                                                        class="form-control form-control-custom" >
+                                                    </div>
+
+                                                    <div class="control">
+                                                        <input type="password" ng-required = "true"  name = "confirma_senha"
+                                                        ng-model = "globals.currentUser.confirma_senha" placeholder="Confirma senha"
+                                                        class="form-control form-control-custom" >
+                                                        <span ng-show="globals.currentUser.senha !== globals.currentUser.confirma_senha">Confirme a senha</span>
+                                                    </div>
+                                                    -->
+
+                                                </div>
+
+                                            </div>
+
+                                        <div align="center">
+                                            <button
+                                                    ng-click  = "cidadaos.atualizarCidadao(globals.currentUser)"
+                                                    ng-disabled = "formNovoCidadao.$invalid || cidadaos.dataLoading"
+                                                    type = "submit"  class="btn btn-orange">
+                                                <span ng-if = "cidadaos.dataLoading === true" class="fa fa-spinner fa-pulse fa-1x"></span>
+                                                Atualizar
+                                            </button>
+                                        </div>
+                                        <br/>
+                                    </form>
+                                </div>
+
+                                </div>
+
+                            </div>
+
+                		</div><!-- fim panel-body -->
+                        <div class="panel-footer">
+                            <fonte titulo="'Receita Federal'"></fonte>
+                            <info titulo="'2017-04-09 02:55:00'"></info>
+                        </div>
+                	</div>
+                </div>
+
+            </div>
+
+		</div>
+
+    </div>

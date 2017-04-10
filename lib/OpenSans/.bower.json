@@ -1,0 +1,14 @@
+{
+  "name": "openSans",
+  "main": [
+    "*.ttf",
+    "*.css"
+  ],
+  "_cacheHeaders": {
+    "Content-Type": "application/octet-stream",
+    "Content-Disposition": "attachment; filename=openSans.zip"
+  },
+  "_source": "https://google-fonts.azurewebsites.net/googleFonts/OpenSans?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,300italic,400italic,300",
+  "_target": "*",
+  "_originalSource": "https://google-fonts.azurewebsites.net/googleFonts/OpenSans?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,300italic,400italic,300"
+}
