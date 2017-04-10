@@ -17,7 +17,7 @@
                         &nbsp;&nbsp;Relatórios
                     </a>
                 </li>
-                <li ng-class="{ active: isActive('/bens') }">
+                <li ng-if="globals.currentUser.papel != 'auditor'" ng-class="{ active: isActive('/bens') }">
                     <a href="#/bens">
                         <span class="fa fa-tachometer fa-fw"></span>
                         &nbsp;&nbsp;Bens
