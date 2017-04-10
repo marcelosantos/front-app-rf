@@ -1,0 +1,75 @@
+
+    <div class="col-md-9 col-lg-10 content animated fadeIn" >
+
+		<div ng-controller="RelatoriosController as cidadaos">
+
+            <div class="row">
+
+                <div class="col-md-12">
+                	<div class="panel panel-default panel-custom">
+                	    <div class="panel-heading truncate">
+                	        <i class="icon-presentation"></i> &nbsp;&nbsp;&nbsp;Relatório de Cidadãos com soma de bens a partir R$ 100 mil reais
+                	    </div>
+                        <div class="panel-body" ng-if="!cidadaos.gridListagemDeCidadaos.data[0].nome">
+                            <center>Carregando...</center>
+                        </div>
+
+                	    <div class="panel-body" style="position: relative" ng-if="cidadaos.gridListagemDeCidadaos.data[0].nome">
+                            <div class="col-md-12">
+
+                	            <div>
+                                    <h5><strong>Listagem dos cidadãos</strong></h5>
+                                    <div
+                                        ui-grid="cidadaos.gridListagemDeCidadaos"
+                                        ui-grid-resize-columns
+                                        class="angular-grid"
+                                        style="height: 400px;"></div>
+                                </div>
+
+                	        </div>
+                		</div><!-- fim panel-body -->
+                        <div class="panel-footer">
+                            <fonte titulo="'Receita Federal'"></fonte>
+                            <info titulo="'2017-04-09 02:55:00'"></info>
+                        </div>
+                	</div>
+                </div>
+
+			</div>
+
+            <div class="row">
+
+                <div class="col-md-12">
+                	<div class="panel panel-default panel-custom">
+                	    <div class="panel-heading truncate">
+                	        <i class="icon-presentation"></i> &nbsp;&nbsp;&nbsp;Agrupamento de Cidadãos por cidade
+                	    </div>
+                        <div class="panel-body" ng-if="!cidadaos.gridListagemDeCidadaosCidade.data[0].cidade">
+                            <center>Carregando...</center>
+                        </div>
+                	    <div class="panel-body" style="position: relative" ng-if="cidadaos.gridListagemDeCidadaosCidade.data[0].cidade">
+                            <div class="col-md-12">
+
+                	            <div>
+                                    <h5><strong>Listagem dos cidadãos</strong></h5>
+                                    <div
+                                        ui-grid="cidadaos.gridListagemDeCidadaosCidade"
+                                        ui-grid-resize-columns
+                                        class="angular-grid"
+                                        style="height: 400px;"></div>
+                                </div>
+
+                	        </div>
+                		</div><!-- fim panel-body -->
+                        <div class="panel-footer">
+                            <fonte titulo="'Receita Federal'"></fonte>
+                            <info titulo="'2017-04-09 02:55:00'"></info>
+                        </div>
+                	</div>
+                </div>
+
+			</div>
+
+		</div>
+
+    </div>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR" ng-app="front-app-rf">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Aplicação de Consulta - Receita Federal</title>
+
+        <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="lib/angular-chart.js/dist/angular-chart.min.css">
+        <link rel="stylesheet" href="lib/angular-ui-grid/ui-grid.min.css">
+		<link rel="stylesheet" href="lib/animate.css/animate.min.css">
+		<link rel="stylesheet" href="lib/etlinefont-bower/style.css">
+		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+
+		<link rel="stylesheet" href="lib/nvd3/build/nv.d3.min.css">
+		<link rel="stylesheet" href="lib/OpenSans/openSans.css">
+		<link rel="stylesheet" href="lib/ficon-finacial-money/flaticon.css">
+		<link rel="stylesheet" href="lib/angular-toastr/dist/angular-toastr.min.css">
+		<link rel="stylesheet" href="css/app.css">
+	</head>
+	<body>
+		<ng-include src="'views/dashboard/menu.topo.html'"></ng-include>
+
+		<div class="container-fluid">
+		    <div class="col-md-3 col-lg-2 sidebar animated slideInLeft">
+		        <div class="row">
+
+		            <ng-include src="'views/dashboard/menu.painel.html'"></ng-include>
+
+		        </div>
+		    </div>
+			<div ng-view></div>
+		</div>
+
+		<script src="js/functions.js"></script>
+
+		<!-- libs -->
+		<script src="lib/jquery/dist/jquery.min.js"></script>
+		<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="lib/angular/angular.min.js"></script>
+		<script src="lib/angular-route/angular-route.min.js"></script>
+		<script src="lib/angular-animate/angular-animate.min.js"></script>
+		<script src="lib/angular-bootstrap/ui-bootstrap.min.js"></script>
+		<script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+		<script src="lib/angular-cookies/angular-cookies.min.js"></script>
+        <!-- grid -->
+        <script src="lib/angular-ui-grid/ui-grid.min.js"></script>
+
+        <!-- charts -->
+		<script src="lib/Chart.js/Chart.min.js"></script>
+		<script src="lib/angular-chart.js/dist/angular-chart.min.js"></script>
+
+		<script src="lib/d3/d3.min.js"></script>
+		<script src="lib/nvd3/build/nv.d3.min.js"></script>
+		<script src="lib/angular-nvd3/dist/angular-nvd3.min.js"></script>
+
+        <!-- Google maps -->
+        <script src='lib/lodash/dist/lodash.min.js'></script>
+        <script src='lib/angular-simple-logger/dist/angular-simple-logger.min.js'></script>
+        <script src='lib/angular-google-maps/dist/angular-google-maps.min.js'></script>
+
+        <!-- moment js -->
+        <script src="lib/moment/min/moment.min.js"></script>
+        <script src="lib/moment/locale/pt-br.js"></script>
+        <!-- angular moment -->
+        <script src="lib/angular-moment/angular-moment.min.js"></script>
+		<!-- toastr -->
+		<script src="lib/angular-toastr/dist/angular-toastr.min.js"></script>
+		<script src="lib/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
+		<!-- Markdown para changelog -->
+		<script src="lib/marked/marked.min.js"></script>
+		<script src="lib/angular-marked/dist/angular-marked.min.js"></script>
+
+		<!-- scripts -->
+		<script src="js/app.module.js"></script>
+		<script src="js/components/info.directive.js"></script>
+		<script src="js/components/fonte.directive.js"></script>
+
+		<script src="js/controllers/dashboardController.js"></script>
+        <script src="js/controllers/relatoriosController.js"></script>
+        <script src="js/controllers/bensController.js"></script>
+        <script src="js/controllers/cidadaosController.js"></script>
+		<script src="js/services/ApiService.js"></script>
+		<script src="js/services/Base64Service.js"></script>
+		<script src="js/services/AuthenticationService.js"></script>
+		<script src="js/services/InterceptorService.js"></script>
+		<script src="js/controllers/loginController.js"></script>
+		<script src="js/configs/routeConfig.js"></script>
+
+	</body>
+</html>

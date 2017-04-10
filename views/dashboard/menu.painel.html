@@ -1,0 +1,41 @@
+<!-- Menu -->
+<div class="side-menu"
+    ng-hide="!restrictedPage || !globals.currentUser">
+    <nav class="navbar navbar-default" role="navigation">
+        <!-- Main Menu -->
+        <div class="side-menu-container">
+            <ul class="nav navbar-nav">
+                <li ng-class="{ active: isActive('/dashboard') }">
+                    <a href="#/dashboard">
+                        <span class="fa fa-tachometer fa-fw"></span>
+                        &nbsp;&nbsp;Dashboard
+                    </a>
+                </li>
+                <li ng-if="globals.currentUser.papel == 'auditor'" ng-class="{ active: isActive('/relatorios') }">
+                    <a href="#/relatorios">
+                        <span class="fa fa-tachometer fa-fw"></span>
+                        &nbsp;&nbsp;Relatórios
+                    </a>
+                </li>
+                <li ng-class="{ active: isActive('/bens') }">
+                    <a href="#/bens">
+                        <span class="fa fa-tachometer fa-fw"></span>
+                        &nbsp;&nbsp;Bens
+                    </a>
+                </li>
+                <li ng-if="globals.currentUser.papel == 'auditor'" ng-class="{ active: isActive('/cidadaos') }">
+                    <a href="#/cidadaos">
+                        <span class="fa fa-tachometer fa-fw"></span>
+                        &nbsp;&nbsp;Cidadãos
+                    </a>
+                </li>
+                <li ng-if="globals.currentUser.papel != 'auditor'" ng-class="{ active: isActive('/perfil') }">
+                    <a href="#/perfil">
+                        <span class="fa fa-tachometer fa-fw"></span>
+                        &nbsp;&nbsp;Meus Dados
+                    </a>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+</div>

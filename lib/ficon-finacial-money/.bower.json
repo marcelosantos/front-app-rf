@@ -1,0 +1,24 @@
+{
+  "name": "ficon-finacial-money",
+  "description": "Icons pack for financial and money apps",
+  "main": [
+    "flaticon.svg",
+    "flaticon.css",
+    "flaticon.ttf",
+    "flaticon.woff"
+  ],
+  "authors": [
+    "Freepik"
+  ],
+  "homepage": "https://github.com/samirfor/ficon-financial-money",
+  "version": "0.0.1",
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.1",
+    "commit": "9742b1ebc05134db2feac856a4afca01386cad77"
+  },
+  "_source": "https://github.com/samirfor/ficon-financial-money.git",
+  "_target": "~0.0.1",
+  "_originalSource": "ficon-financial-money"
+}

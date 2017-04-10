@@ -1,0 +1,40 @@
+<div class="container">
+	<div class="row login_box">
+		<div class="col-md-12 col-xs-12 login-header line-bottom" align="center">
+			<div class="line"><h3>Fiscalização</h3></div>
+			<div class="outter">
+				<img src="images/receita-federal-logo.png"
+				class="image-circle"/></div>
+			</div>
+			<div class="col-md-12 col-xs-12 login_control">
+				<p  class = "text-center" ng-show = "!vm.resposta.sucesso"
+				ng-bind = "vm.resposta.mensagem"></p>
+				<p  class = "box-message" ng-if = "!vm.mostrarCampoSenha" >
+					<i class="fa fa-info-circle">&nbsp;</i> Digite o seu <strong>e-mail</strong> abaixo para receber as instruções de recuperação da sua senha.
+				</p>
+				<form name = "formAutenticacao"  >
+					<div class="control">
+						<input type="email" ng-required = "true"  name = "email"
+						ng-model = "vm.credenciais.email" placeholder="E-mail"
+						class="form-control form-control-custom" >
+					</div>
+					<div class="control" ng-if = "vm.mostrarCampoSenha" >
+						<input type="password" ng-required = "true" name = "senha"
+						ng-model = "vm.credenciais.senha" placeholder="Senha"
+						class="form-control form-control-custom" />
+					</div>
+
+				<div align="center">
+					<button ng-if = "vm.mostrarCampoSenha"
+							ng-click  = "vm.login(vm.credenciais)"
+							ng-disabled = "formAutenticacao.$invalid || vm.dataLoading"
+							type = "submit"  class="btn btn-orange">
+						<span ng-if = "vm.dataLoading === true" class="fa fa-spinner fa-pulse fa-1x"></span>
+						Acessar
+					</button>
+				</div>
+				<br/>
+			</form>
+		</div>
+	</div>
+</div>
