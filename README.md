@@ -2,22 +2,12 @@
 
 Estudo de caso do FRONTEND para API REST de consulta de dados de pessoas e bens para Receita Federal.
 
+Acesse pelo endereço: https://marcelosantos.github.io/front-app-rf.github.io
+
 Pré-requisitos:
 
-* Ruby version
+* Bootstrap 3.x
 
-* System dependencies
+* AngularJS 1.x
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* JQuery
