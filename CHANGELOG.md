@@ -1,3 +1,8 @@
+v1.0.4 (11/04/2017)
+===================
+## hotfixes
+    - bug fix form for disable field papel
+
 v1.0.3 (11/04/2017)
 ===================
 ## features
