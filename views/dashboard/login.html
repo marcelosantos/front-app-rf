@@ -9,10 +9,10 @@
 			<div class="col-md-12 col-xs-12 login_control">
 				<p  class = "text-center" ng-show = "!vm.resposta.sucesso"
 				ng-bind = "vm.resposta.mensagem"></p>
-				<p  class = "box-message" ng-if = "!vm.mostrarCampoSenha" >
-					<i class="fa fa-info-circle">&nbsp;</i> Digite o seu <strong>e-mail</strong> abaixo para receber as instruções de recuperação da sua senha.
+				<p  class = "box-message" ng-if = "vm.mostrarNovaConta" >
+					<i class="fa fa-info-circle">&nbsp;</i> Informe os dados para a nova conta.
 				</p>
-				<form name = "formAutenticacao"  >
+				<form name = "formAutenticacao"  ng-if = "!vm.mostrarNovaConta">
 					<div class="control">
 						<input type="email" ng-required = "true"  name = "email"
 						ng-model = "vm.credenciais.email" placeholder="E-mail"
@@ -25,16 +25,100 @@
 					</div>
 
 				<div align="center">
-					<button ng-if = "vm.mostrarCampoSenha"
+					<button
 							ng-click  = "vm.login(vm.credenciais)"
 							ng-disabled = "formAutenticacao.$invalid || vm.dataLoading"
 							type = "submit"  class="btn btn-orange">
 						<span ng-if = "vm.dataLoading === true" class="fa fa-spinner fa-pulse fa-1x"></span>
 						Acessar
 					</button>
+                    <button ng-if = "!vm.mostrarNovaConta"
+							ng-click  = "vm.mostrarNovaConta = true"
+							type = "submit"  class="btn btn-orange">
+						<span ng-if = "vm.dataLoading === true" class="fa fa-spinner fa-pulse fa-1x"></span>
+						Nova Conta
+					</button>
 				</div>
 				<br/>
-			</form>
+			    </form>
+                <form name = "formNovaConta" ng-if = "vm.mostrarNovaConta">
+                    <div class="control">
+						<input type="text" ng-required = "true"  name = "nome"
+						ng-model = "vm.novaConta.nome" placeholder="Nome Nova Conta"
+						class="form-control form-control-custom" >
+					</div>
+                    <div class="control">
+                    <select
+                        class="form-control form-control-custom"
+                        ng-required = "true"
+                        name = "sexo"
+                        ng-model = "vm.novaConta.sexo"
+                        ng-init="vm.novaConta.sexo = '0'">
+                        <option value="0">Sexo...</option>
+                        <option value="1">Feminino</option>
+                        <option value="2">Masculino</option>
+                    </select>
+                    </div>
+                    <div class="control">
+						<input type="text" ng-required = "true"  name = "endereco"
+						ng-model = "vm.novaConta.endereco" placeholder="Endereço Nova Conta"
+						class="form-control form-control-custom" >
+					</div>
+                    <div class="control">
+                        <input type="text" ng-required = "true"  name = "cidade"
+                        ng-model = "vm.novaConta.cidade" placeholder="Cidade"
+                        class="form-control form-control-custom" >
+                    </div>
+                    <div class="control">
+                        <input type="text" ng-required = "true"  name = "idade"
+                        ng-model = "vm.novaConta.idade" placeholder="Idade"
+                        class="form-control form-control-custom" >
+                    </div>
+                    <div class="control">
+                    <select
+                        class="form-control form-control-custom"
+                        ng-required = "true"
+                        name = "papel"
+                        ng-model = "vm.novaConta.papel"
+                        ng-init="vm.novaConta.papel = '0'">
+                        <option value="0">Papel...</option>
+                        <option value="auditor">Auditor Fiscal</option>
+                        <option value="cidadao">Cidadão</option>
+                    </select>
+                    </div>
+                    <div class="control">
+						<input type="email" ng-required = "true"  name = "email"
+						ng-model = "vm.novaConta.email" placeholder="E-mail Nova Conta"
+						class="form-control form-control-custom" >
+					</div>
+					<div class="control" ng-if = "vm.mostrarCampoSenha" >
+						<input type="password" ng-required = "true" name = "senha"
+						ng-model = "vm.novaConta.senha" placeholder="Senha Nova Conta"
+						class="form-control form-control-custom" />
+					</div>
+                    <div class="control" ng-if = "vm.mostrarCampoSenha" >
+						<input type="password" ng-required = "true" name = "confirma_senha"
+						ng-model = "vm.novaConta.confirma_senha" placeholder="Confirmação de Senha"
+						class="form-control form-control-custom" />
+					</div>
+
+				<div align="center">
+					<button ng-click  = "vm.criarConta(vm.novaConta)"
+							ng-disabled = "formAutenticacao.$invalid || vm.dataLoading"
+							type = "submit"  class="btn btn-orange">
+						<span ng-if = "vm.dataLoading === true" class="fa fa-spinner fa-pulse fa-1x"></span>
+						Criar
+					</button>
+                    <button ng-if = "vm.mostrarNovaConta"
+							ng-click  = "vm.mostrarNovaConta = false"
+							ng-disabled = "formAutenticacao.$invalid || vm.dataLoading"
+							type = "submit"  class="btn btn-orange">
+						<span ng-if = "vm.dataLoading === true" class="fa fa-spinner fa-pulse fa-1x"></span>
+						Voltar
+					</button>
+				</div>
+				<br/>
+			    </form>
 		</div>
 	</div>
 </div>

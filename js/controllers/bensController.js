@@ -12,6 +12,7 @@
         $rootScope.globals = $cookieStore.get('globals') || {};
 
         $http.defaults.headers.common['Authorization'] = $rootScope.globals.token || "";
+
         //view model object
         /* jshint validthis:true */
         var vm = this;

@@ -2,8 +2,8 @@
     'use strict';
 
     angular
-        .module('front-app-rf')
-        .factory('ApiService', ApiService);
+    .module('front-app-rf')
+    .factory('ApiService', ApiService);
 
     ApiService.$inject = ['$http', 'Base64Service','$rootScope','$cookieStore'];
 
@@ -15,7 +15,8 @@
 
         var UID = $rootScope.globals.currentUser ? $rootScope.globals.currentUser.id : Logout() ;
         var service = {};
-        var SERVER = 'https://api-app-rf.herokuapp.com'; //'http://192.168.33.10:3000';
+        var SERVER = 'https://api-app-rf.herokuapp.com';
+        //var SERVER = 'http://192.168.33.10:3000';
 
         //Bens API
         service.listarBens = listarBens;
@@ -32,7 +33,9 @@
 
         service.Login = Login;
         service.Logout = Logout;
-        
+
+        service.NovaConta = NovaConta;
+
         return service;
 
         function listarBens() {
@@ -103,15 +106,29 @@
             return $http.post(SERVER + '/auth/login',{email:email,password:senha}).then(handleRequest);
         }
 
+        function NovaConta(novaConta) {
+            return $http.post(SERVER + '/signup',{
+                nome: novaConta.nome,
+                sexo: novaConta.sexo,
+                endereco: novaConta.endereco,
+                cidade: novaConta.cidade,
+                idade: novaConta.idade,
+                papel: novaConta.papel,
+                email: novaConta.email,
+                password: novaConta.senha,
+                password_confirmation: novaConta.confirma_senha
+            });
+        }
+
         function Logout() {
             //return $http.get(SERVER + '/auth/log/logout').then(handleRequest);
         }
 
         // private functions
         function handleRequest(res) {
-           if(res.status == 401)
+            if(res.status == 401)
             return { success: false, message: 'Credenciais inválidas: verifique se email e/ou senha estão corretos.' };
-          else if(res.status == 200)
+            else if(res.status == 200)
             return { success: true, data: res.data };
         }
     }
